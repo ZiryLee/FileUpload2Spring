@@ -34,7 +34,7 @@ public ModelAndView testUploadAction(
   2. @RequestParam(value = "photos", required = false) MultipartFile[] files
   
   3. MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
- 	   List<MultipartFile> files = multipartRequest.getFiles("files");
+     List<MultipartFile> files = multipartRequest.getFiles("files");
 	        
 ```
 
@@ -65,6 +65,6 @@ public ModelAndView testUploadAction(
 删除图片：
    1. UploadUtil.deleteFile( str );
    2. 兼容旧版：
-	if( !UploadUtil.deleteFile( str ) ) {
-		UploadUtil.deleteWebFile(request, str);
-	}
+	if( !UploadUtil.deleteFile( str ) ) {  
+		UploadUtil.deleteWebFile(request, str);  
+	}  
