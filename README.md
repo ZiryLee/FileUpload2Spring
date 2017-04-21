@@ -68,3 +68,12 @@ public ModelAndView testUploadAction(
 	if( !UploadUtil.deleteFile( str ) ) {  
 		UploadUtil.deleteWebFile(request, str);  
 	}  
+
+
+WEB地址文件加载到本地保存
+示例：
+```
+UploadEntity uploadEntity = new DownloadEntityImp(http://....;);  
+System.out.println(uploadEntity.savePhoto(true));  
+System.out.println(uploadEntity.getSmallPhoto(160, 160));  
+```
