@@ -7,6 +7,7 @@
 
 示例：
   
+```
 @RequestMapping(value = "/testUpload.html", method = RequestMethod.POST)
 public ModelAndView testUploadAction(
   @RequestParam(value = "photo", required = false) MultipartFile file, 
@@ -24,9 +25,10 @@ public ModelAndView testUploadAction(
   }
   return createModelAndView("WeCharTest/testUpload", modelMap);
 }
+```
   
  
-  数组方式：
+数组方式：
   1. @RequestParam(value = "files", required = false) List<MultipartFile> files
   
   2. @RequestParam(value = "photos", required = false) MultipartFile[] files
@@ -34,6 +36,7 @@ public ModelAndView testUploadAction(
   3. MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
  	   List<MultipartFile> files = multipartRequest.getFiles("files");
 	        
+```
 
   @RequestMapping(value = "/testUpload.html", method = RequestMethod.POST)
   public ModelAndView testUploadAction(
@@ -56,11 +59,12 @@ public ModelAndView testUploadAction(
   
   	return createModelAndView("WeCharTest/testUpload", modelMap);
   }
+```
   
   
-   	删除图片：
-   	1. UploadUtil.deleteFile( str );
-   	2. 兼容旧版：
-		if( !UploadUtil.deleteFile( str ) ) {
-			UploadUtil.deleteWebFile(request, str);
-		}
+删除图片：
+   1. UploadUtil.deleteFile( str );
+   2. 兼容旧版：
+	if( !UploadUtil.deleteFile( str ) ) {
+		UploadUtil.deleteWebFile(request, str);
+	}
