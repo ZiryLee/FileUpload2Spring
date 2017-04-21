@@ -1,11 +1,11 @@
 # FileUpload2Spring
-这是一个基于SpringMVC的文件上传封装，通过配置文件配置上传路径，上传文件只需save()一下，对图片文件可压缩，剪切等操作。
+这是一个基于SpringMVC的文件上传封装，通过配置文件配置上传路径，上传文件只需save()一下，对图片文件可压缩，剪切等操作。  
 
 
-基于spring mvc 的文件上传实体类
-内部包含MultipartFile
+基于spring mvc 的文件上传实体类  
+内部包含MultipartFile  
 
-示例：
+示例：  
   
 ```
 @RequestMapping(value = "/testUpload.html", method = RequestMethod.POST)
@@ -29,12 +29,12 @@ public ModelAndView testUploadAction(
   
  
 数组方式：
-  1. @RequestParam(value = "files", required = false) List<MultipartFile> files
+  1. @RequestParam(value = "files", required = false) List<MultipartFile> files  
   
-  2. @RequestParam(value = "photos", required = false) MultipartFile[] files
+  2. @RequestParam(value = "photos", required = false) MultipartFile[] files  
   
-  3. MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-     List<MultipartFile> files = multipartRequest.getFiles("files");
+  3. MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;  
+     List<MultipartFile> files = multipartRequest.getFiles("files");  
 	        
 ```
 
@@ -62,9 +62,9 @@ public ModelAndView testUploadAction(
 ```
   
   
-删除图片：
-   1. UploadUtil.deleteFile( str );
-   2. 兼容旧版：
+删除图片：  
+   1. UploadUtil.deleteFile( str );  
+   2. 兼容旧版：  
 	if( !UploadUtil.deleteFile( str ) ) {  
 		UploadUtil.deleteWebFile(request, str);  
 	}  
