@@ -17,8 +17,10 @@ public ModelAndView testUploadAction(
     UploadEntity uploadEntity = new UploadEntityImp(file);
 
     try {
-      System.out.println(uploadEntity.savePhoto(true));
-      System.out.println(uploadEntity.getSmallPhoto(160, 160));
+      //上传文件
+      System.out.println(uploadEntity.savePhoto(true));
+      //获取缩略图
+      System.out.println(uploadEntity.getSmallPhoto(160, 160));
     } catch (Exception e) {
       e.printStackTrace();
       printLog(e);
@@ -29,7 +31,7 @@ public ModelAndView testUploadAction(
 ```
   
  
-### 数组方式：
+### 数组方式（批量上传）：
 
   1. @RequestParam(value = "files", required = false) List<MultipartFile> files  
   
@@ -51,7 +53,9 @@ public ModelAndView testUploadAction(
  		for (MultipartFile file : files) {
   			if (!UploadUtil.isNull(file)) {
   				uploadEntity = new UploadEntityImp(file);
+				 //上传文件
   				System.out.println(uploadEntity.savePhoto(true));
+				//获取缩略图
   				System.out.println(uploadEntity.getSmallPhoto(160, 160));
   			}
   		}
